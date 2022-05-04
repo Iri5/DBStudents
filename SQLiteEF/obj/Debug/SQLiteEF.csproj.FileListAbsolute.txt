@@ -18,3 +18,4 @@ C:\Study\СПбГТИ\4 семестр\+Прога\4 lab\SQLiteEF\SQLiteEF\obj\D
 C:\Study\СПбГТИ\4 семестр\+Прога\4 lab\SQLiteEF\SQLiteEF\obj\Debug\SQLiteEF.exe
 C:\Study\СПбГТИ\4 семестр\+Прога\4 lab\SQLiteEF\SQLiteEF\obj\Debug\SQLiteEF.pdb
 C:\Study\СПбГТИ\4 семестр\+Прога\4 lab\SQLiteEF\SQLiteEF\obj\Debug\SQLiteEF.Form1.resources
+C:\Study\СПбГТИ\4 семестр\+Прога\4 lab\SQLiteEF\SQLiteEF\obj\Debug\SQLiteEF.About.resources

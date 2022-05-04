@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Configuration;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
 namespace SQLiteEF
 {
     public partial class Form1 : Form
@@ -174,8 +175,36 @@ namespace SQLiteEF
             label20.Text = "Enter the id of the student \nwhose data you want to delete";
             var data = context.Students.ToList();
             table.DataSource = data;
+            ShowHello(sender, e);
         }
-
+        private void ShowHello(object sender, EventArgs e)
+        {
+            if (bool.Parse(ConfigurationManager.AppSettings["showHello"]))
+            {
+                About about = new About();
+                about.ShowDialog();
+            }
+        }
+        
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowGreetingForm();
+        }
+       
+        private void showAboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            bool show = !bool.Parse(ConfigurationManager.AppSettings["showHello"]);
+            config.AppSettings.Settings["showHello"].Value = (show).ToString();
+            config.Save();
+            showAboutToolStripMenuItem.Checked = show;
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+        
+        private void ShowGreetingForm()
+        {
+            new SQLiteEF.About().ShowDialog();
+        }
         private void button_Insert_Click(object sender, EventArgs e)
         {
             if ((textBox_insertAge.Text == "") || (textBox_insertCourse.Text == "") || (textBox_insertFname.Text == "") ||
@@ -375,5 +404,14 @@ namespace SQLiteEF
                 }
             }
         }
+
+        private void saveToFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var data = context.Students.ToList();
+            FileData fileData = new FileData();
+            fileData.SaveResults(data);
+        }
+
+        
     }
 }

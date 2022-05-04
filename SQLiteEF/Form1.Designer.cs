@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -65,9 +66,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button_delete = new System.Windows.Forms.Button();
-            this.textBox_deleteId = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.button_FindDelete = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.textBox_deleteGroup = new System.Windows.Forms.TextBox();
             this.textBox_deleteCourse = new System.Windows.Forms.TextBox();
             this.textBox_deleteAge = new System.Windows.Forms.TextBox();
@@ -78,8 +78,10 @@
             this.label_Course = new System.Windows.Forms.Label();
             this.label_Age = new System.Windows.Forms.Label();
             this.label_LName = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button_FindDelete = new System.Windows.Forms.Button();
+            this.button_delete = new System.Windows.Forms.Button();
+            this.textBox_deleteId = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.showAboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -103,18 +105,30 @@
             // 
             // menuToolStripMenuItem
             // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToFileToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // saveToFileToolStripMenuItem
+            // 
+            this.saveToFileToolStripMenuItem.Name = "saveToFileToolStripMenuItem";
+            this.saveToFileToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.saveToFileToolStripMenuItem.Text = "Save to file";
+            this.saveToFileToolStripMenuItem.Click += new System.EventHandler(this.saveToFileToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showAboutToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -457,32 +471,24 @@
             this.tabPage4.Text = "DELETE";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button_delete
+            // button_FindDelete
             // 
-            this.button_delete.Location = new System.Drawing.Point(349, 93);
-            this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(163, 23);
-            this.button_delete.TabIndex = 25;
-            this.button_delete.Text = "DELETE";
-            this.button_delete.UseVisualStyleBackColor = true;
-            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+            this.button_FindDelete.Location = new System.Drawing.Point(46, 146);
+            this.button_FindDelete.Name = "button_FindDelete";
+            this.button_FindDelete.Size = new System.Drawing.Size(75, 23);
+            this.button_FindDelete.TabIndex = 37;
+            this.button_FindDelete.Text = "TO FIND";
+            this.button_FindDelete.UseVisualStyleBackColor = true;
+            this.button_FindDelete.Click += new System.EventHandler(this.button_FindDelete_Click);
             // 
-            // textBox_deleteId
+            // label20
             // 
-            this.textBox_deleteId.Location = new System.Drawing.Point(35, 96);
-            this.textBox_deleteId.Name = "textBox_deleteId";
-            this.textBox_deleteId.Size = new System.Drawing.Size(100, 20);
-            this.textBox_deleteId.TabIndex = 24;
-            this.textBox_deleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_deleteId_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 13);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "Id";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 50);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 13);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "label20";
             // 
             // textBox_deleteGroup
             // 
@@ -574,24 +580,39 @@
             this.label_LName.Size = new System.Drawing.Size(0, 13);
             this.label_LName.TabIndex = 27;
             // 
-            // label20
+            // button_delete
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 50);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 13);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "label20";
+            this.button_delete.Location = new System.Drawing.Point(349, 93);
+            this.button_delete.Name = "button_delete";
+            this.button_delete.Size = new System.Drawing.Size(163, 23);
+            this.button_delete.TabIndex = 25;
+            this.button_delete.Text = "DELETE";
+            this.button_delete.UseVisualStyleBackColor = true;
+            this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
             // 
-            // button_FindDelete
+            // textBox_deleteId
             // 
-            this.button_FindDelete.Location = new System.Drawing.Point(46, 146);
-            this.button_FindDelete.Name = "button_FindDelete";
-            this.button_FindDelete.Size = new System.Drawing.Size(75, 23);
-            this.button_FindDelete.TabIndex = 37;
-            this.button_FindDelete.Text = "TO FIND";
-            this.button_FindDelete.UseVisualStyleBackColor = true;
-            this.button_FindDelete.Click += new System.EventHandler(this.button_FindDelete_Click);
+            this.textBox_deleteId.Location = new System.Drawing.Point(35, 96);
+            this.textBox_deleteId.Name = "textBox_deleteId";
+            this.textBox_deleteId.Size = new System.Drawing.Size(100, 20);
+            this.textBox_deleteId.TabIndex = 24;
+            this.textBox_deleteId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_deleteId_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 99);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(16, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Id";
+            // 
+            // showAboutToolStripMenuItem
+            // 
+            this.showAboutToolStripMenuItem.Name = "showAboutToolStripMenuItem";
+            this.showAboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showAboutToolStripMenuItem.Text = "Show About";
+            this.showAboutToolStripMenuItem.Click += new System.EventHandler(this.showAboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -674,6 +695,8 @@
         private System.Windows.Forms.Label label_Age;
         private System.Windows.Forms.Label label_LName;
         private System.Windows.Forms.Button button_FindDelete;
+        private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showAboutToolStripMenuItem;
     }
 }
 
