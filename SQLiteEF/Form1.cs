@@ -2,12 +2,11 @@
 using System.Linq;
 using System.Configuration;
 using System.Windows.Forms;
-using System.Collections.Generic;
 namespace SQLiteEF
 {
     public partial class Form1 : Form
     {
-        StudentContext context = new StudentContext();
+        StudentContext context = new StudentContext("DBStudents.db");
         public Form1()
         {
             InitializeComponent();
@@ -245,7 +244,7 @@ namespace SQLiteEF
                 }
             }
         }
-
+        
         private void button_Find_Click(object sender, EventArgs e)
         {
             if (textBox_updateId.Text == "") 
@@ -318,6 +317,7 @@ namespace SQLiteEF
                 }
             }
         }
+        
 
         private void button_FindDelete_Click(object sender, EventArgs e)
         {
@@ -369,7 +369,7 @@ namespace SQLiteEF
             }
         }
 
-        private void button_delete_Click(object sender, EventArgs e)
+        private void button_delete_Click(object sender, EventArgs e) 
         {
             if (textBox_deleteId.Text == "")
             {
@@ -404,7 +404,7 @@ namespace SQLiteEF
                 }
             }
         }
-
+        
         private void saveToFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var data = context.Students.ToList();

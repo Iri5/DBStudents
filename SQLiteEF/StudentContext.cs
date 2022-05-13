@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SQLiteEF
 {
-     class StudentContext : DbContext
+    public class StudentContext : DbContext
     {
-        public StudentContext() : base(new SQLiteConnection()
+        public StudentContext(string sourse) : base(new SQLiteConnection()
         {
             ConnectionString = new SQLiteConnectionStringBuilder()
             {
-                DataSource = "DBStudents.db",
+                DataSource = sourse,
                 ForeignKeys = true
             }.ConnectionString
         }, true)
         {
+
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
